@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Tap N Take AV</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -37,17 +27,24 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-two-col">
-      <!-- LEFT COLUMN -->
+      <!-- LEFT: logo on top, machine photo below -->
       <div class="hero-left">
-        <img src="https://i.ibb.co/zH8JFksm/IMG-2760-transparent.png" alt="Tap N Take Logo" class="big-logo" />
-        <img src="https://i.ibb.co/WpxQkqwf/Screenshot-2025-09-09-at-12-05-28-AM.png" alt="Tap N Take Machine" class="main-img" />
+        <img
+          src="https://i.ibb.co/zH8JFksm/IMG-2760-transparent.png"
+          alt="Tap N Take Logo"
+          class="big-logo"
+        />
+        <img
+          src="https://i.ibb.co/WpxQkqwf/Screenshot-2025-09-09-at-12-05-28-AM.png"
+          alt="Tap N Take Machine"
+          class="main-img"
+        />
       </div>
 
-      <!-- RIGHT COLUMN -->
+      <!-- RIGHT: headline, copy, CTA (top aligned) -->
       <div class="hero-right">
         <h1 class="display">
-          Smart, <span class="highlight">Staff-Free</span><br/>
-          Vending 24/7
+          Smart, <span class="highlight">Staff-Free</span><br/>Vending 24/7
         </h1>
         <p class="lead">
           Tap N Take provides modern autonomous vending machines, fully stocked and always ready — installed and serviced at no cost to your business.
@@ -62,7 +59,7 @@
     <div class="container">
       <h2>Why Choose Tap N Take?</h2>
       <div class="card-grid">
-        <div class="card">💲 No Cost to You</div>
+        <div class="card">💲 No Cost to You 💲</div>
         <div class="card">⏱ 24/7 Availability</div>
         <div class="card">📦 Automatic Restocking</div>
         <div class="card">🌱 Energy Efficient</div>
@@ -85,18 +82,53 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Request Your Free Machine</h2>
-      <form class="contact-form" onsubmit="alert('Thanks! We’ll be in touch.'); return false;">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Work Email" required>
-        <input type="text" placeholder="Company & Location" required>
-        <textarea placeholder="Tell us about your space..." rows="4"></textarea>
-        <button type="submit" class="btn btn-primary">Submit Request</button>
-      </form>
-    </div>
-  </section>
+ <section id="contact" class="contact">
+  <div class="container">
+    <h2>Request Your Free Machine</h2>
+    <form
+      action="https://formspree.io/f/mnnbwoyv"
+      method="POST"
+      class="contact-form"
+      id="contactForm"
+    >
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Work Email" required>
+      <input type="text" name="company" placeholder="Company & Location" required>
+      <textarea name="message" placeholder="Tell us about your space..." rows="4"></textarea>
+      <button type="submit" class="btn btn-primary">Submit Request</button>
+    </form>
+
+    <!-- Hidden success message -->
+    <p id="successMessage" style="display:none; margin-top:1rem; color:green; font-weight:600;">
+      ✅ Thanks, we’ll be in touch!
+    </p>
+  </div>
+</section>
+
+<!-- Formspree handling script -->
+<script>
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset(); // clear form
+      successMessage.style.display = "block"; // show success message
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  });
+</script>
+
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -105,9 +137,5 @@
     </div>
   </footer>
 
-</body>
-</html>
-<!-- partial -->
-  
 </body>
 </html>
