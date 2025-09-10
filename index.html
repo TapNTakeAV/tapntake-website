@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="./styles.css?v=2">
+<head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tap N Take Autonomous Vending</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Your CSS (make sure styles.css sits next to index.html) -->
+  <link rel="stylesheet" href="./styles.css?v=2" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 </head>
@@ -33,11 +38,15 @@
           src="https://i.ibb.co/zH8JFksm/IMG-2760-transparent.png"
           alt="Tap N Take Logo"
           class="big-logo"
+          loading="lazy"
+          decoding="async"
         />
         <img
           src="https://i.ibb.co/WpxQkqwf/Screenshot-2025-09-09-at-12-05-28-AM.png"
           alt="Tap N Take Machine"
           class="main-img"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -82,60 +91,4 @@
   </section>
 
   <!-- Contact -->
- <section id="contact" class="contact">
-  <div class="container">
-    <h2>Request Your Free Machine</h2>
-    <form
-      action="https://formspree.io/f/mnnbwoyv"
-      method="POST"
-      class="contact-form"
-      id="contactForm"
-    >
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Work Email" required>
-      <input type="text" name="company" placeholder="Company & Location" required>
-      <textarea name="message" placeholder="Tell us about your space..." rows="4"></textarea>
-      <button type="submit" class="btn btn-primary">Submit Request</button>
-    </form>
-
-    <!-- Hidden success message -->
-    <p id="successMessage" style="display:none; margin-top:1rem; color:green; font-weight:600;">
-      ✅ Thanks, we’ll be in touch!
-    </p>
-  </div>
-</section>
-
-<!-- Formspree handling script -->
-<script>
-  const form = document.getElementById("contactForm");
-  const successMessage = document.getElementById("successMessage");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.reset(); // clear form
-      successMessage.style.display = "block"; // show success message
-    } else {
-      alert("Oops! Something went wrong. Please try again.");
-    }
-  });
-</script>
-
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Tap N Take Autonomous Vending. All rights reserved.</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+  <section id="contact" class="contact">
