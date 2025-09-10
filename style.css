@@ -1,8 +1,8 @@
 :root {
   --orange: #D2691E;
-  --teal: #1E6F78;
-  --cream: #F7EECF;  /* updated site-wide background */
-  --brown: #2B1B0E;
+  --teal:   #1E6F78;
+  --cream:  #F7EECF;   /* site-wide background */
+  --brown:  #2B1B0E;
   --radius: 14px;
 }
 
@@ -15,6 +15,7 @@ body {
 }
 img { max-width: 100%; display: block; }
 
+/* Layout container */
 .container { width: min(1120px, 92%); margin: 0 auto; }
 
 /* Header */
@@ -49,7 +50,7 @@ img { max-width: 100%; display: block; }
   transition: transform .08s ease, background .2s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--orange); color: #fff; }
+.btn-primary   { background: var(--orange); color: #fff; }
 .btn-primary:hover { background: var(--brown); color: #fff; }
 .btn-secondary { background: var(--teal); color: #fff; }
 .btn-secondary:hover { background: var(--brown); }
@@ -58,24 +59,34 @@ img { max-width: 100%; display: block; }
 .hero { padding: 2.25rem 0 3rem; }
 .hero-two-col {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  align-items: start;  /* aligns text top with logo */
+  grid-template-columns: 1fr 1fr;
+  align-items: start;   /* top-align both columns */
   gap: 2rem;
 }
-.hero-left { display: grid; gap: 1.25rem; }
+
+/* Left column: logo (top), then photo */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
 .big-logo {
   max-width: 420px;
   width: 100%;
+  height: auto;
 }
 .main-img {
   border-radius: var(--radius);
   box-shadow: 0 16px 40px rgba(0,0,0,.12);
 }
 
+/* Right column (top aligned) */
 .hero-right {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-top: 5rem;
 }
 .display {
   font-family: 'Poppins', sans-serif;
@@ -121,7 +132,13 @@ img { max-width: 100%; display: block; }
 .contact-form button { border: none; cursor: pointer; }
 
 /* Footer */
-.site-footer { background: var(--orange); color: #fff; padding: 1.2rem 0; text-align: center; font-size: .9rem; }
+.site-footer {
+  background: var(--orange);
+  color: #fff;
+  padding: 1.2rem 0;
+  text-align: center;
+  font-size: .9rem;
+}
 
 /* Responsive */
 @media (max-width: 900px) {
