@@ -88,8 +88,9 @@ img { max-width: 100%; display: block; }
 .machine-steps {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  margin-top: 20px;
+  justify-content: center;   /* centers horizontally */
+  gap: 40px;                 /* space between the two images */
+  margin: 20px auto;         /* auto margins keep it centered */
 }
 .steps-img {
   max-width: 220px;
