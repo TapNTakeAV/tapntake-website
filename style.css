@@ -38,7 +38,7 @@ img { max-width: 100%; display: block; }
 .hero-two-col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
 
 /* Left column */
-.hero-left { display:flex; flex-direction:column; gap:1.25rem; align-items:center; }
+.hero-left { display:flex; flex-direction:column; gap:1.25rem; align-items:center; text-align:center; }
 .big-logo { max-width:420px; width:100%; height:auto; }
 
 /* Machine + Steps side by side */
